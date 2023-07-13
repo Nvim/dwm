@@ -81,9 +81,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
+#include "shift-tools-scratchpads.c"
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	//{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	//{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -134,6 +136,8 @@ static const Key keys[] = {
 	{ MODKEY,            		XK_y,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY,      			XK_e,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY,           		XK_x,	   togglescratch,  {.ui = 2 } },
+	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1}  },
+	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1}  },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
